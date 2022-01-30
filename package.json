@@ -1,7 +1,6 @@
 {
   "name": "bernard-proexe",
   "version": "0.1.0",
-  "homepage": "https://github.com/bernardlao/bernard-proexe",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
