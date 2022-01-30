@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Redirect, Route, Switch } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import PageNotFound from "./components/PageNotFound";
+import UserForm from "./components/UserForm";
+import { ROUTES } from "./shared/constants/routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path={ROUTES.BASE} render={() => <Redirect to={ROUTES.DASHBOARD} />} />
+      <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
+      <Route exact path={ROUTES.NEW_USER} component={UserForm} />
+      <Route path={ROUTES.EDIT_USER.path} component={UserForm} />
+      <Route component={PageNotFound}/>
+    </Switch>
   );
-}
+};
 
 export default App;
